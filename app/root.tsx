@@ -6,7 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-
+import {NextUIProvider} from "@nextui-org/react";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -32,9 +32,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+      <NextUIProvider>
         {children}
         <ScrollRestoration />
         <Scripts />
+      </NextUIProvider>
       </body>
     </html>
   );
